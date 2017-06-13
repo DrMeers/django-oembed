@@ -2,7 +2,7 @@ import gzip
 import logging
 import os
 import re
-import urllib2
+import urllib.request
 import urlparse
 try:
     from urlparse import parse_qs
@@ -37,10 +37,10 @@ def fetch(url, user_agent="django-oembed/0.1"):
     """
     Fetches from a URL, respecting GZip encoding, etc.
     """
-    request = urllib2.Request(url)
+    request = urllib.request.Request(url)
     request.add_header('User-Agent', user_agent)
     request.add_header('Accept-Encoding', 'gzip')
-    opener = urllib2.build_opener()
+    opener = urllib.request.build_opener()
     f = opener.open(request)
     result = f.read()
     if f.headers.get('content-encoding', '') == 'gzip':
@@ -235,7 +235,7 @@ def replace(text, max_width=None, max_height=None, template_dir='oembed'):
                 parts[id_to_replace] = part
             except KeyError:
                 parts[id_to_replace] = part
-            except urllib2.HTTPError:
+            except urllib.request.HTTPError:
                 parts[id_to_replace] = part
     # Combine the list into one string and return it.
     return mark_safe(u''.join(parts))
