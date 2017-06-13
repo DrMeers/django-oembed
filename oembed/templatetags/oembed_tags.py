@@ -1,4 +1,4 @@
-import urllib
+import urllib.parse
 from html.parser import HTMLParser
 
 import django
@@ -18,12 +18,12 @@ def unescape(text):
 
 @register.filter
 def urlunquote(quoted_url):
-    return force_text(urllib.unquote(smart_str(quoted_url)))
+    return force_text(urllib.parse.unquote(smart_str(quoted_url)))
 
 
 @register.filter
 def urlunquote_plus(quoted_url):
-    return force_text(urllib.unquote_plus(smart_str(quoted_url)))
+    return force_text(urllib.parse.unquote_plus(smart_str(quoted_url)))
 
 
 def oembed(input, args=None):
