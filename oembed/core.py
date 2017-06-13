@@ -10,7 +10,7 @@ except ImportError:
     # (copied to urlparse from cgi in 2.6)
     from cgi import parse_qs
 from heapq import heappush, heappop
-from io import StringIO
+from io import BytesIO
 
 from django.conf import settings
 from django.utils.http import urlencode
@@ -41,7 +41,7 @@ def fetch(url, user_agent="django-oembed/0.1"):
     f = opener.open(request)
     result = f.read()
     if f.headers.get('content-encoding', '') == 'gzip':
-        result = gzip.GzipFile(fileobj=StringIO(result)).read()
+        result = gzip.GzipFile(fileobj=BytesIO(result)).read()
     f.close()
     return result
 
