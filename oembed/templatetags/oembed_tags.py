@@ -1,5 +1,5 @@
 import urllib
-import HTMLParser
+from html.parser import HTMLParser
 
 import django
 from django import template
@@ -13,7 +13,7 @@ register = template.Library()
 @register.filter
 def unescape(text):
     """Decoding HTML Entities to Text in Python"""
-    return force_unicode(HTMLParser.HTMLParser().unescape(text))
+    return force_unicode(HTMLParser().unescape(text))
 
 
 @register.filter
