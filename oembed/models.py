@@ -23,7 +23,7 @@ class ProviderRule(models.Model):
     endpoint = models.CharField(_("endpoint"), max_length=2000)
     format = models.IntegerField(_("format"), choices=FORMAT_CHOICES)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name or self.endpoint
 
 
@@ -39,7 +39,7 @@ class StoredOEmbed(models.Model):
     class Meta:
         ordering = ('-max_width',) # larger ones take precedence
 
-    def __unicode__(self):
+    def __str__(self):
         return self.match
 
     def get_json(self, name):
