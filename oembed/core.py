@@ -77,7 +77,7 @@ def re_parts(regex_list, text):
     # Bootstrap the search with the first hit for each iterator
     for regex, iterator in iter_dict.items():
         try:
-            match = iterator.next()
+            match = iterator.__next__()
             heappush(matches, (match.start(), match))
         except StopIteration:
             iter_dict.pop(regex)
