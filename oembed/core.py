@@ -10,10 +10,7 @@ except ImportError:
     # (copied to urlparse from cgi in 2.6)
     from cgi import parse_qs
 from heapq import heappush, heappop
-try:
-    from cStringIO import StringIO
-except ImportError:
-    from StringIO import StringIO
+from io import StringIO
 
 from django.conf import settings
 from django.utils.http import urlencode
