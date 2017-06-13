@@ -3,9 +3,9 @@ import logging
 import os
 import re
 import urllib.request
-import urlparse
+import urllib.parse
 try:
-    from urlparse import parse_qs
+    from urllib.parse import parse_qs
 except ImportError:
     # (copied to urlparse from cgi in 2.6)
     from cgi import parse_qs
@@ -111,7 +111,7 @@ def re_parts(regex_list, text):
 
 def build_url(endpoint, url, max_width, max_height):
     # Split up the URL and extract GET parameters as a dictionary
-    split_url = urlparse.urlsplit(endpoint)
+    split_url = urllib.parse.urlsplit(endpoint)
     params = parse_qs(split_url[3])
     params.update({
         'url': url,
@@ -121,7 +121,7 @@ def build_url(endpoint, url, max_width, max_height):
         })
     # Put the URL back together with the new params and return it
     params = urlencode(params, doseq=1)
-    return urlparse.urlunsplit(split_url[:3] + (params,) + split_url[4:])
+    return urllib.parse.urlunsplit(split_url[:3] + (params,) + split_url[4:])
 
 def fetch_dict(url, max_width=None, max_height=None):
     """
