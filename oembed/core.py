@@ -42,6 +42,9 @@ def fetch(url, user_agent="django-oembed/0.1"):
     result = f.read()
     if f.headers.get('content-encoding', '') == 'gzip':
         result = gzip.GzipFile(fileobj=BytesIO(result)).read()
+    # hack; we should probably replace all of this with requests library?
+    if hasattr(result, 'decode'):
+        result = result.decode('utf-8')
     f.close()
     return result
 
