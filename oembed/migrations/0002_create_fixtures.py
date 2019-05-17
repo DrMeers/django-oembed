@@ -458,7 +458,7 @@ def create_fixtures(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('oembed', '0002_auto__add_field_storedoembed_json'),
+        ('oembed', '0001_initial'),
     ]
 
     operations = [
