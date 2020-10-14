@@ -238,4 +238,4 @@ def replace(text, max_width=None, max_height=None, template_dir='oembed'):
             except urllib.request.HTTPError:
                 parts[id_to_replace] = part
     # Combine the list into one string and return it.
-    return mark_safe(u''.join(parts))
+    return mark_safe(''.join(parts))

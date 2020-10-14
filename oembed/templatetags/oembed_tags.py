@@ -29,7 +29,7 @@ def urlunquote_plus(quoted_url):
 def oembed(input, args=None):
     if args:
         try:
-            width, height = map(int, args.lower().split('x'))
+            width, height = list(map(int, args.lower().split('x')))
         except ValueError:
             raise template.TemplateSyntaxError("Oembed's optional " \
                 "WIDTHxHEIGHT argument requires WIDTH and HEIGHT to be " \
@@ -63,7 +63,7 @@ def do_oembed(parser, token):
             "integers.")
     if len(args) == 2:
         try:
-            width, height = map(int, args[1].lower().split('x'))
+            width, height = list(map(int, args[1].lower().split('x')))
         except ValueError:
             raise template.TemplateSyntaxError("Oembed's optional " \
                 "WIDTHxHEIGHT argument requires WIDTH and HEIGHT to be " \
