@@ -8,7 +8,7 @@ try:
     from django.utils.timezone import now
 except ImportError:
     now = datetime.datetime.now
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 JSON = 1
 XML = 2
