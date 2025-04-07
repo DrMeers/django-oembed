@@ -26,27 +26,17 @@ class OEmbedField(models.URLField):
                 except HTTPError as e:
                     if e.code == 401:
                         raise exceptions.ValidationError(
-                            u'Please ensure the settings for this video allow '
-                            u'embedding in external sites ({})'.format(
+                            'Please ensure the settings for this video allow '
+                            'embedding in external sites ({})'.format(
                                 e
                             )
                         )
                     raise exceptions.ValidationError(
-                        u'Cannot embed video: {}'.format(e)
+                        'Cannot embed video: {}'.format(e)
                     )
                 except Exception as e:
                     raise exceptions.ValidationError(
-                        u'Cannot embed video: {}'.format(e)
+                        'Cannot embed video: {}'.format(e)
                     )
                 return
         raise exceptions.ValidationError('Not a valid oEmbed link')
-
-
-try:
-    from south.modelsinspector import add_introspection_rules
-except ImportError:
-    pass # No south, nevermind
-else:
-    # Tell south to treat OEmbedFields just like URLFields
-    rules = ['^%s\.OEmbedField' % (__name__.replace('.','\.'),)]
-    add_introspection_rules([], rules)
