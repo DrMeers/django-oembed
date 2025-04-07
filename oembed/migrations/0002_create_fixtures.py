@@ -90,7 +90,7 @@ initial_data = [
     },
     {
         "pk": 13,
-        "regex": "(https?://\\S*.?youtube.com/watch[\\w\\-\\.~%/\\?#@!$&'\\(\\)\\*\\+,;=]*|https?://youtu.be/[\\w\\-\\.~%/\\?#@!$&'\\(\\)\\*\\+,;=]*)",
+        "regex": "(https?://\\S*.?youtube.com/(?:watch|shorts)[\\w\\-\\.~%/\\?#@!$&'\\(\\)\\*\\+,;=]*|https?://youtu.be/[\\w\\-\\.~%/\\?#@!$&'\\(\\)\\*\\+,;=]*)",
         "endpoint": "https://www.youtube.com/oembed?scheme=https",
         "name": "YouTube",
         "format": 1
