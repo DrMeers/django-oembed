@@ -1,5 +1,5 @@
 import re
-from urllib2 import HTTPError
+from urllib3 import HTTPError
 
 from django.core import exceptions
 from django.db import models
