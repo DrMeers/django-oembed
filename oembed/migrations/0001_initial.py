@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(blank=True, max_length=128, null=True, verbose_name='name')),
                 ('regex', models.CharField(max_length=2000, verbose_name='regex')),
                 ('endpoint', models.CharField(max_length=2000, verbose_name='endpoint')),
-                ('format', models.IntegerField(choices=[(1, b'JSON'), (2, b'XML')], verbose_name='format')),
+                ('format', models.IntegerField(choices=[(1, 'JSON'), (2, 'XML')], verbose_name='format')),
             ],
         ),
         migrations.CreateModel(
